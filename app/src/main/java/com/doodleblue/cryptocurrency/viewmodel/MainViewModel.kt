@@ -1,5 +1,7 @@
 package com.doodleblue.cryptocurrency.viewmodel
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,8 +9,11 @@ import androidx.lifecycle.ViewModel
 import com.doodleblue.cryptocurrency.data.CoinsRepository
 import com.doodleblue.cryptocurrency.data.CoinsRepositoryImpl
 import com.doodleblue.cryptocurrency.data.model.Coins
+import com.doodleblue.cryptocurrency.data.networking.InternetChecker
 
-class MainViewModel(private val repository: CoinsRepository = CoinsRepositoryImpl()) : ViewModel() {
+@RequiresApi(Build.VERSION_CODES.M)
+class MainViewModel(private val repository: CoinsRepository = CoinsRepositoryImpl())
+    : ViewModel() {
 
     private val allCoins = MediatorLiveData<List<Coins>>()
 
@@ -32,8 +37,12 @@ class MainViewModel(private val repository: CoinsRepository = CoinsRepositoryImp
         repository.saveCoins(coins)
     }
 
-    fun getCoinsLiveData() : MutableLiveData<List<Coins>> {
+    fun getCoinsLiveData() : MutableLiveData<List<Coins>?> {
         return repository.getCoinsLiveData()
+    }
+
+    fun getInternetStatus() : LiveData<Boolean>{
+       return repository.getInternetStatus()
     }
 
 }

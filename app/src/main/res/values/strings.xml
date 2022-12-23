@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CryptoCurrency</string>
+    <string name="symbol">Symbol</string>
+    <string name="price">Price</string>
+    <string name="change">Change</string>
+    <string name="name">Name</string>
+    <string name="_5_493_2">$5,493.2</string>
+    <string name="btc">BTC</string>
+    <string name="_1_3">-1.3%</string>
+    <string name="bitcoin">Bitcoin</string>
+    <string name="dollar">$ %1$s</string>
+    <string name="percent">%1$s</string>
 </resources>

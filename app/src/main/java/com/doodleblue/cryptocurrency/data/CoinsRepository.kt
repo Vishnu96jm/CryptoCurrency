@@ -12,5 +12,7 @@ interface CoinsRepository {
 
     fun fetchCoins()
 
-    fun getCoinsLiveData() : MutableLiveData<List<Coins>>
+    fun getCoinsLiveData() : MutableLiveData<List<Coins>?>
+
+    fun getInternetStatus() : MutableLiveData<Boolean>
 }

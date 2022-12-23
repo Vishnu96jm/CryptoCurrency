@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.doodleblue.cryptocurrency.R
 import com.doodleblue.cryptocurrency.data.model.Coins
 import com.doodleblue.cryptocurrency.databinding.ItemListBinding
 
@@ -39,8 +40,8 @@ class CoinsListAdapter(private val coinsList: MutableList<Coins>) :
              fun bindData(coins : Coins){
                  symbol.text = coins.symbol.toString()
                  name.text = coins.name.toString()
-                 price.text = "$"+String.format("%.02f", coins.priceUsd!!.toFloat())
-                 change.text = String.format("%.03f", coins.changePercent24Hr!!.toFloat())+"%"
+                 price.text = view.resources.getString(R.string.dollar, String.format("%.02f", coins.priceUsd!!.toFloat()))
+                 change.text = view.resources.getString(R.string.percent, String.format("%.03f", coins.changePercent24Hr!!.toFloat()))+"%"
              }
          }
 

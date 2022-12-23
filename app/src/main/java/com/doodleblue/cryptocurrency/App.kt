@@ -10,7 +10,7 @@ lateinit var db: CoinsDatabase
 class App : Application() {
 
     companion object {
-        private lateinit var instance: App
+        lateinit var instance: App
         const val BASE_URL = "https://api.coincap.io/v2/"
 
         //To expose the RemoteApi to the rest of the app
